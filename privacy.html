@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1517">
+  <meta name="description" content="Официальная политика конфиденциальности TULIX: обработка, хранение, доступ и защита пользовательских данных.">
+  <title>Privacy & Data Protection — TULIX</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0b1113;
+      --surface: #111a1d;
+      --surface-2: #152125;
+      --surface-3: #1a292d;
+      --text: #edf5f2;
+      --muted: #a0b2ae;
+      --subtle: #718580;
+      --line: rgba(206, 232, 224, .12);
+      --accent: #8ce3c5;
+      --accent-strong: #54cda8;
+      --accent-ink: #092018;
+      --warning: #f2d59a;
+      --max: 1160px;
+      --radius: 22px;
+      --shadow: 0 24px 70px rgba(0, 0, 0, .24);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+    body {
+      margin: 0;
+      min-width: 320px;
+      background:
+        radial-gradient(ellipse at 83% 0%, rgba(84, 205, 168, .11), transparent 33rem),
+        radial-gradient(ellipse at 0% 34%, rgba(72, 139, 128, .08), transparent 30rem),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.68;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: #b6f5df; }
+    button { font: inherit; }
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid var(--line);
+      background: rgba(11, 17, 19, .84);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+    .topbar-inner {
+      width: min(var(--max), calc(100% - 44px));
+      height: 76px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .brand { display: inline-flex; align-items: center; gap: 12px; color: var(--text); }
+    .brand-mark {
+      width: 38px; height: 38px; display: grid; place-items: center;
+      border-radius: 12px; color: var(--accent-ink); font-weight: 900; font-size: 19px;
+      background: linear-gradient(145deg, #b7f5df, #58cda8);
+      box-shadow: 0 7px 24px rgba(84, 205, 168, .18);
+    }
+    .brand-name { font-size: 16px; font-weight: 850; letter-spacing: .19em; }
+    .brand-caption { display: block; margin-top: -4px; color: var(--subtle); font-size: 9px; font-weight: 700; letter-spacing: .17em; }
+    .top-actions { display: flex; align-items: center; gap: 12px; }
+    .top-link { color: var(--muted); font-size: 13px; font-weight: 650; }
+    .lang-switch {
+      display: inline-flex; gap: 3px; padding: 4px; border: 1px solid var(--line);
+      border-radius: 999px; background: var(--surface); 
+    }
+    .lang-switch button {
+      min-width: 42px; padding: 7px 11px; border: 0; border-radius: 999px;
+      color: var(--muted); background: transparent; cursor: pointer; font-size: 11px; font-weight: 800;
+      transition: background .2s ease, color .2s ease;
+    }
+    .lang-switch button[aria-pressed="true"] { color: var(--accent-ink); background: var(--accent); }
+    .container { width: min(var(--max), calc(100% - 44px)); margin: 0 auto; }
+    .hero { padding: 76px 0 48px; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 9px; padding: 7px 11px;
+      border: 1px solid rgba(140, 227, 197, .22); border-radius: 999px;
+      color: var(--accent); background: rgba(84, 205, 168, .07);
+      font-size: 10px; font-weight: 850; letter-spacing: .15em; text-transform: uppercase;
+    }
+    .eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 13px var(--accent); }
+    h1 {
+      max-width: 850px; margin: 23px 0 15px; font-size: clamp(42px, 7vw, 76px);
+      line-height: .99; letter-spacing: -.065em; font-weight: 780;
+    }
+    h1 span { color: var(--accent); }
+    .hero-copy { max-width: 650px; margin: 0; color: var(--muted); font-size: clamp(15px, 2vw, 18px); line-height: 1.75; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .meta-chip {
+      display: inline-flex; align-items: center; gap: 8px; padding: 9px 13px;
+      border: 1px solid var(--line); border-radius: 12px; background: rgba(17, 26, 29, .72);
+      color: var(--muted); font-size: 12px;
+    }
+    .meta-chip strong { color: var(--text); font-weight: 700; }
+    .meta-chip svg { width: 14px; height: 14px; color: var(--accent); }
+    .notice {
+      display: flex; align-items: flex-start; gap: 13px; margin: 0 0 36px; padding: 16px 18px;
+      border: 1px solid rgba(242, 213, 154, .2); border-radius: 15px;
+      background: rgba(242, 213, 154, .055); color: #d7c9a9; font-size: 12px;
+    }
+    .notice svg { flex: 0 0 18px; width: 18px; height: 18px; margin-top: 2px; color: var(--warning); }
+    .layout { display: grid; grid-template-columns: 245px minmax(0, 1fr); align-items: start; gap: 26px; padding-bottom: 90px; }
+    .sidebar { position: sticky; top: 100px; }
+    .toc {
+      padding: 20px 14px 16px; border: 1px solid var(--line); border-radius: 18px;
+      background: rgba(17, 26, 29, .78); box-shadow: var(--shadow);
+    }
+    .toc-label { margin: 0 10px 12px; color: var(--subtle); font-size: 10px; font-weight: 850; letter-spacing: .16em; text-transform: uppercase; }
+    .toc a {
+      display: flex; align-items: baseline; gap: 11px; padding: 8px 10px; border-radius: 9px;
+      color: var(--muted); font-size: 12px; line-height: 1.4; transition: .18s ease;
+    }
+    .toc a:hover { color: var(--text); background: var(--surface-3); }
+    .toc a span { color: var(--subtle); font-variant-numeric: tabular-nums; font-size: 10px; }
+    .sidebar-note { margin: 14px 5px 0; color: var(--subtle); font-size: 11px; line-height: 1.55; }
+    .policy { min-width: 0; }
+    .policy-section {
+      position: relative; margin-bottom: 14px; padding: 29px 31px 30px;
+      border: 1px solid var(--line); border-radius: var(--radius);
+      background: linear-gradient(145deg, rgba(21, 33, 37, .96), rgba(15, 23, 26, .96));
+      box-shadow: 0 10px 35px rgba(0, 0, 0, .11);
+    }
+    .section-heading { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 14px; }
+    .section-number {
+      display: grid; flex: 0 0 38px; width: 38px; height: 38px; place-items: center;
+      border: 1px solid rgba(140, 227, 197, .18); border-radius: 12px;
+      color: var(--accent); background: rgba(84, 205, 168, .07); font-size: 12px; font-weight: 850;
+      font-variant-numeric: tabular-nums;
+    }
+    h2 { margin: 2px 0 0; font-size: 20px; line-height: 1.35; letter-spacing: -.025em; }
+    .policy-section p { margin: 11px 0; color: #b9c8c4; font-size: 14px; }
+    .policy-section p:last-child { margin-bottom: 0; }
+    .policy-section ul { margin: 12px 0 8px; padding-left: 19px; color: #b9c8c4; }
+    .policy-section li { margin: 7px 0; padding-left: 3px; font-size: 14px; }
+    .policy-section li::marker { color: var(--accent-strong); }
+    .retention-list { display: grid; gap: 8px; margin-top: 16px; }
+    .retention-item {
+      display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 14px; align-items: center;
+      padding: 12px 14px; border: 1px solid var(--line); border-radius: 12px; background: rgba(8, 14, 16, .24);
+    }
+    .retention-item span { color: #b9c8c4; font-size: 13px; }
+    .retention-item strong { color: var(--accent); font-size: 12px; white-space: nowrap; }
+    .contact-card {
+      display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px;
+      margin-top: 18px; padding: 21px 24px; border: 1px solid rgba(140, 227, 197, .22);
+      border-radius: 18px; background: linear-gradient(120deg, rgba(84, 205, 168, .12), rgba(17, 26, 29, .9));
+    }
+    .contact-card h3 { margin: 0 0 4px; font-size: 17px; }
+    .contact-card p { margin: 0; color: var(--muted); font-size: 12px; }
+    .contact-actions { display: flex; flex-wrap: wrap; gap: 9px; }
+    .button {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 14px;
+      border: 1px solid var(--line); border-radius: 11px; color: var(--text); background: var(--surface-2);
+      font-size: 12px; font-weight: 750; transition: transform .18s ease, border-color .18s ease;
+    }
+    .button:hover { transform: translateY(-1px); border-color: rgba(140, 227, 197, .45); color: var(--text); }
+    .button.primary { border-color: transparent; color: var(--accent-ink); background: var(--accent); }
+    .button svg { width: 14px; height: 14px; }
+    footer { border-top: 1px solid var(--line); }
+    .footer-inner { min-height: 92px; display: flex; align-items: center; justify-content: space-between; gap: 20px; color: var(--subtle); font-size: 11px; }
+    .footer-brand { color: var(--text); font-weight: 850; letter-spacing: .17em; }
+    .footer-links { display: flex; gap: 18px; }
+    .footer-links a { color: var(--muted); }
+    [data-lang="en"] { display: none; }
+    body.english [data-lang="ru"] { display: none; }
+    body.english [data-lang="en"] { display: revert; }
+    @media (max-width: 850px) {
+      .layout { grid-template-columns: 1fr; }
+      .sidebar { position: static; }
+      .toc { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; padding: 13px; }
+      .toc-label { flex: 0 0 100%; margin: 0 8px 5px; }
+      .toc a { padding: 7px 9px; }
+      .sidebar-note { display: none; }
+    }
+    @media (max-width: 560px) {
+      .topbar-inner, .container { width: min(100% - 30px, var(--max)); }
+      .topbar-inner { height: 66px; }
+      .top-link { display: none; }
+      .hero { padding: 55px 0 34px; }
+      .hero-meta { gap: 7px; }
+      .meta-chip { font-size: 11px; }
+      .layout { gap: 18px; padding-bottom: 58px; }
+      .policy-section { padding: 22px 19px 23px; border-radius: 17px; }
+      .section-heading { gap: 11px; }
+      h2 { font-size: 18px; }
+      .policy-section p, .policy-section li { font-size: 13px; }
+      .retention-item { grid-template-columns: 1fr; gap: 3px; }
+      .contact-card { padding: 19px; }
+      .contact-actions { width: 100%; }
+      .contact-actions .button { flex: 1; }
+      .footer-inner { min-height: 105px; align-items: flex-start; justify-content: center; flex-direction: column; gap: 9px; padding: 18px 0; }
+    }
+    @media print {
+      :root { color-scheme: light; --text: #101817; --muted: #46534f; --line: #d7dfdc; }
+      body { background: #fff; color: #101817; }
+      .topbar, .sidebar, .contact-actions { display: none !important; }
+      .container { width: 100%; }
+      .hero { padding: 20px 0; }
+      .layout { display: block; padding: 0; }
+      .policy-section { break-inside: avoid; box-shadow: none; background: #fff; border-color: #d7dfdc; }
+      .policy-section p, .policy-section li { color: #26332f; }
+      .notice { color: #544a34; }
+      footer { margin-top: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#top" aria-label="TULIX home">
+        <span class="brand-mark" aria-hidden="true">T</span>
+        <span><span class="brand-name">TULIX</span><span class="brand-caption">YOUR DIGITAL MULTITOOL</span></span>
+      </a>
+      <div class="top-actions">
+        <a class="top-link" href="https://t.me/tulixbot" target="_blank" rel="noopener noreferrer">@tulixbot ↗</a>
+        <div class="lang-switch" role="group" aria-label="Choose language">
+          <button id="ruButton" type="button" aria-pressed="true" onclick="setLanguage('ru')">RU</button>
+          <button id="enButton" type="button" aria-pressed="false" onclick="setLanguage('en')">EN</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="top" class="container">
+    <section class="hero">
+      <div class="eyebrow"><span class="eyebrow-dot"></span><span data-lang="ru">Центр конфиденциальности</span><span data-lang="en">Privacy center</span></div>
+      <h1 data-lang="ru">Конфиденциальность.<br><span>Без лишнего.</span></h1>
+      <h1 data-lang="en">Privacy.<br><span>Without the noise.</span></h1>
+      <p class="hero-copy" data-lang="ru">Здесь описано, какие данные TULIX обрабатывает для работы инструментов, как долго они хранятся и какие меры применяются для их защиты.</p>
+      <p class="hero-copy" data-lang="en">This policy explains what data TULIX processes to provide its tools, how long information is retained and what measures are used to protect it.</p>
+      <div class="hero-meta">
+        <div class="meta-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-lang="ru">Дата вступления в силу: <strong>16 ноября 2026 года</strong></span><span data-lang="en">Effective date: <strong>16 November 2026</strong></span></div>
+        <div class="meta-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16v14H4z"/><path d="m4 7 8 6 8-6"/></svg><strong>tidesluck@icloud.com</strong></div>
+      </div>
+    </section>
+
+    <div class="layout">
+      <aside class="sidebar" aria-label="Table of contents">
+        <nav class="toc">
+          <p class="toc-label"><span data-lang="ru">Содержание</span><span data-lang="en">On this page</span></p>
+          <a href="#section-1"><span>01</span><span data-lang="ru">Общие положения</span><span data-lang="en">General information</span></a>
+          <a href="#section-2"><span>02</span><span data-lang="ru">Какие данные</span><span data-lang="en">Information processed</span></a>
+          <a href="#section-3"><span>03</span><span data-lang="ru">Цели обработки</span><span data-lang="en">Purposes</span></a>
+          <a href="#section-4"><span>04</span><span data-lang="ru">Хранение и удаление</span><span data-lang="en">Storage and deletion</span></a>
+          <a href="#section-5"><span>05</span><span data-lang="ru">Доступ к данным</span><span data-lang="en">Access to data</span></a>
+          <a href="#section-6"><span>06</span><span data-lang="ru">Сторонние сервисы</span><span data-lang="en">Third-party services</span></a>
+          <a href="#section-7"><span>07</span><span data-lang="ru">Безопасность</span><span data-lang="en">Security</span></a>
+          <a href="#section-8"><span>08</span><span data-lang="ru">Права пользователей</span><span data-lang="en">User rights</span></a>
+          <a href="#section-9"><span>09</span><span data-lang="ru">Ответственность</span><span data-lang="en">User responsibilities</span></a>
+          <a href="#section-10"><span>10</span><span data-lang="ru">Изменения политики</span><span data-lang="en">Policy updates</span></a>
+          <a href="#section-11"><span>11</span><span data-lang="ru">Контакты</span><span data-lang="en">Contact</span></a>
+        </nav>
+        <p class="sidebar-note"><span data-lang="ru">Политика применяется к использованию бота TULIX в Telegram.</span><span data-lang="en">This policy applies to your use of the TULIX Telegram bot.</span></p>
+      </aside>
+
+      <article class="policy">
+        <section class="policy-section" id="section-1">
+  <div class="section-heading"><span class="section-number">01</span><h2><span data-lang="ru">Общие положения</span><span data-lang="en">General Information</span></h2></div>
+  <div data-lang="ru">
+    <p>TULIX — цифровой мультитул в Telegram, объединяющий инструменты для конвертации и архивирования файлов, работы с изображениями и текстом, создания QR-кодов, сокращения ссылок, временной электронной почты и функций искусственного интеллекта.</p>
+    <p>Настоящая Политика объясняет, какие данные обрабатываются при использовании TULIX, для каких целей они нужны, кому могут передаваться и как долго хранятся. Обработка зависит от того, какими функциями пользуется человек.</p>
+    <p><strong>Оператор сервиса:</strong> администрация TULIX.<br><strong>Контактная почта:</strong> <a href="mailto:tidesluck@icloud.com">tidesluck@icloud.com</a><br><strong>Telegram:</strong> <a href="https://t.me/tulixbot" target="_blank" rel="noopener noreferrer">@tulixbot</a></p>
+    <p>Политика действует с 16 ноября 2026 года. Продолжая пользоваться функциями TULIX, пользователь подтверждает, что ему предоставлена возможность ознакомиться с настоящими условиями. Когда согласие требуется применимым законодательством, оно запрашивается отдельно.</p>
+  </div>
+  <div data-lang="en">
+    <p>TULIX is a digital multitool on Telegram, combining file conversion and archiving, image and text processing, QR code creation, link shortening, temporary email and artificial intelligence features.</p>
+    <p>This Policy explains what information is processed when using TULIX, why it is needed, who it may be shared with and how long it is retained. Processing depends on the features a person uses.</p>
+    <p><strong>Service operator:</strong> TULIX administration.<br><strong>Contact email:</strong> <a href="mailto:tidesluck@icloud.com">tidesluck@icloud.com</a><br><strong>Telegram:</strong> <a href="https://t.me/tulixbot" target="_blank" rel="noopener noreferrer">@tulixbot</a></p>
+    <p>This Policy is effective as of 16 November 2026. By continuing to use TULIX features, the user confirms that they have been given an opportunity to review this Policy. Where required by applicable law, consent is requested separately.</p>
+  </div>
+</section>
+
+        <section class="policy-section" id="section-2">
+  <div class="section-heading"><span class="section-number">02</span><h2><span data-lang="ru">Какие данные обрабатываются</span><span data-lang="en">Information We Process</span></h2></div>
+  <div data-lang="ru">
+    <p>В зависимости от используемых функций TULIX может обрабатывать:</p>
+    <ul>
+      <li>Telegram User ID, имя пользователя, отображаемое имя и выбранный язык;</li>
+      <li>сообщения, команды, запросы, историю обращений к ИИ и технический контекст диалога;</li>
+      <li>статус подписки, счётчики использованных операций, лимиты и настройки аккаунта;</li>
+      <li>загруженные и созданные файлы, фотографии, изображения, документы, архивы и их технические характеристики;</li>
+      <li>текст, изображения и другие материалы, переданные для OCR, обработки фотографий, генерации изображений, резюме или другого контента;</li>
+      <li>ссылки, сокращённые адреса и данные, необходимые для создания QR-кодов;</li>
+      <li>адреса временной электронной почты и полученные на них сообщения;</li>
+      <li>сохранённые пользователем заметки, включая текст и пароли, созданные в соответствующей функции;</li>
+      <li>метаданные файлов: тип, формат, размер, статус и время выполнения операции;</li>
+      <li>технические журналы, сведения об ошибках и событиях безопасности.</li>
+    </ul>
+    <p>TULIX не запрашивает номер телефона для стандартной работы. Однако пользователь может самостоятельно включить номер телефона, адрес, контакты или иные персональные сведения в текст, файл, QR-код или другое отправленное содержимое.</p>
+  </div>
+  <div data-lang="en">
+    <p>Depending on the features used, TULIX may process:</p>
+    <ul>
+      <li>Telegram User ID, username, display name and selected language;</li>
+      <li>messages, commands, requests, AI interaction history and conversational context;</li>
+      <li>subscription status, usage counters, limits and account settings;</li>
+      <li>uploaded and generated files, photographs, images, documents, archives and their technical properties;</li>
+      <li>text, images and other materials submitted for OCR, photo processing, image generation, résumé creation or other content generation;</li>
+      <li>URLs, shortened links and data required to create QR codes;</li>
+      <li>temporary email addresses and messages received by them;</li>
+      <li>notes saved by the user, including text and passwords generated through the relevant feature;</li>
+      <li>file metadata such as type, format, size, operation status and processing time;</li>
+      <li>technical logs, error reports and security events.</li>
+    </ul>
+    <p>TULIX does not request a phone number for standard operation. However, users may choose to include a phone number, address, contact details or other personal information in text, files, QR codes or other submitted content.</p>
+  </div>
+</section>
+
+        <section class="policy-section" id="section-3">
+  <div class="section-heading"><span class="section-number">03</span><h2><span data-lang="ru">Цели обработки данных</span><span data-lang="en">Purposes of Data Processing</span></h2></div>
+  <div data-lang="ru">
+    <p>Информация обрабатывается для предоставления функций TULIX и обеспечения их корректной работы, в частности для:</p>
+    <ul>
+      <li>конвертации, сжатия, архивирования и распаковки файлов;</li>
+      <li>создания QR-кодов и преобразования ссылок в короткие адреса;</li>
+      <li>подсчёта и анализа текста, создания и хранения заметок и паролей;</li>
+      <li>предоставления временных почтовых ящиков и отображения входящих сообщений;</li>
+      <li>распознавания текста на изображениях и документах;</li>
+      <li>генерации изображений, резюме, анкет и другого контента с использованием ИИ;</li>
+      <li>подготовки фотографий к формату 3×4;</li>
+      <li>сохранения истории операций и сокращённых ссылок, учёта подписки и лимитов;</li>
+      <li>технической поддержки, предотвращения злоупотреблений, защиты сервиса и выполнения обязательных требований закона.</li>
+    </ul>
+    <p>TULIX не продаёт персональные данные и не использует пользовательское содержимое для рекламного профилирования.</p>
+  </div>
+  <div data-lang="en">
+    <p>Information is processed to provide TULIX features and ensure their proper operation, including:</p>
+    <ul>
+      <li>converting, compressing, archiving and extracting files;</li>
+      <li>creating QR codes and turning URLs into shortened links;</li>
+      <li>counting and analysing text, creating and storing notes and passwords;</li>
+      <li>providing temporary mailboxes and displaying incoming messages;</li>
+      <li>recognising text in images and documents;</li>
+      <li>generating images, résumés, forms and other content with AI;</li>
+      <li>preparing photographs in 3×4 format;</li>
+      <li>keeping operation history and shortened links, and managing subscriptions and usage limits;</li>
+      <li>providing technical support, preventing abuse, protecting the service and complying with binding legal requirements.</li>
+    </ul>
+    <p>TULIX does not sell personal data or use user content for advertising profiling.</p>
+  </div>
+</section>
+
+        <section class="policy-section" id="section-4">
+  <div class="section-heading"><span class="section-number">04</span><h2><span data-lang="ru">Хранение и удаление информации</span><span data-lang="en">Data Storage and Retention</span></h2></div>
+  <div data-lang="ru">
+    <p>TULIX стремится не хранить временные файлы дольше, чем это необходимо для выполнения операции и скачивания результата. Для разных типов данных предусмотрены разные сроки:</p>
+    <div class="retention-list">
+      <div class="retention-item"><span>Исходные и обработанные файлы, архивы, фото для документов и QR-файлы</span><strong>до 10 минут</strong></div>
+      <div class="retention-item"><span>Активно скачиваемый файл</span><strong>продление интервалами до 10 минут</strong></div>
+      <div class="retention-item"><span>Созданные генератором изображения</span><strong>до 72 часов</strong></div>
+      <div class="retention-item"><span>Временный почтовый ящик и письма</span><strong>до 24 часов</strong></div>
+      <div class="retention-item"><span>Контекст диалога с ИИ на стороне TULIX</span><strong>до 7 дней</strong></div>
+      <div class="retention-item"><span>История операций: тип, формат и размер файла</span><strong>до очистки пользователем</strong></div>
+      <div class="retention-item"><span>Сохранённые заметки и пароли</span><strong>до удаления пользователем</strong></div>
+      <div class="retention-item"><span>Записи о сокращённых ссылках</span><strong>пока существует аккаунт/сервис или до удаления</strong></div>
+      <div class="retention-item"><span>Технические журналы</span><strong>не более 30 дней</strong></div>
+    </div>
+    <p>Для файлов, подготовленных к скачиванию, отсчёт обычно начинается после завершения обработки. Если файл не скачан в течение 10 минут, он удаляется автоматически. Пока передача файла активно продолжается, срок хранения может продлеваться дополнительными интервалами до 10 минут; после завершения или прекращения скачивания временный файл удаляется.</p>
+    <p>История операций содержит только сведения о файле и операции (например, тип, формат и размер), а не сам исходный или обработанный файл. Пользователь может очистить эту историю самостоятельно.</p>
+    <p>Срок до 72 часов относится к созданным изображениям. Для иных файлов, которые возвращаются пользователю для скачивания, действует временный срок до 10 минут, если для конкретной функции прямо не указан другой срок.</p>
+    <p>Срок до 7 дней относится только к контексту диалога, который может храниться в инфраструктуре TULIX. Он не означает автоматическое удаление истории сообщений из приложения Telegram: история Telegram управляется самим Telegram и настройками пользователя. Пользователь может удалить переписку в Telegram самостоятельно.</p>
+    <p>Почтовый провайдер, сервис сокращения ссылок, ИИ-платформы и другие внешние поставщики могут хранить данные по собственным правилам. Удаление информации из TULIX не гарантирует её одновременного удаления из систем стороннего поставщика. Сокращённая ссылка, созданная внешним сервисом, может продолжить работать независимо от удаления записи из личного кабинета TULIX.</p>
+    <p>Заметки, настройки и записи о сокращённых ссылках сохраняются до удаления пользователем либо до прекращения работы соответствующей функции или сервиса. Удаление основных данных из TULIX не означает немедленного удаления копий, которые могли попасть в резервные системы или журналы инфраструктурных поставщиков.</p>
+  </div>
+  <div data-lang="en">
+    <p>TULIX aims to retain temporary files only for the time required to complete an operation and let the user download the result. Different data types have different retention periods:</p>
+    <div class="retention-list">
+      <div class="retention-item"><span>Source and processed files, archives, ID photos and QR files</span><strong>up to 10 minutes</strong></div>
+      <div class="retention-item"><span>File actively being downloaded</span><strong>extensions in intervals of up to 10 minutes</strong></div>
+      <div class="retention-item"><span>Images created by the image generator</span><strong>up to 72 hours</strong></div>
+      <div class="retention-item"><span>Temporary mailbox and messages</span><strong>up to 24 hours</strong></div>
+      <div class="retention-item"><span>AI conversation context on TULIX infrastructure</span><strong>up to 7 days</strong></div>
+      <div class="retention-item"><span>Operation history: file type, format and size</span><strong>until cleared by the user</strong></div>
+      <div class="retention-item"><span>Saved notes and passwords</span><strong>until deleted by the user</strong></div>
+      <div class="retention-item"><span>Shortened-link records</span><strong>while the account/service exists or until deleted</strong></div>
+      <div class="retention-item"><span>Technical logs</span><strong>no more than 30 days</strong></div>
+    </div>
+    <p>For files prepared for download, the retention period normally starts when processing is complete. If a file is not downloaded within 10 minutes, it is automatically deleted. While a download is actively in progress, retention may be extended in additional intervals of up to 10 minutes. The temporary file is deleted after the download finishes or stops.</p>
+    <p>Operation history contains file and task metadata (for example, type, format and size), not the source or processed file itself. Users can clear this history.</p>
+    <p>The 72-hour period applies to generated images. Other files returned for download are subject to the 10-minute temporary retention period unless a different period is expressly stated for a specific feature.</p>
+    <p>The 7-day period applies only to conversational context that may be stored on TULIX infrastructure. It does not mean that Telegram chat messages are automatically deleted from the Telegram app. Telegram message history is controlled by Telegram and the user's settings; users may delete their chat history in Telegram themselves.</p>
+    <p>Email providers, link-shortening services, AI platforms and other external providers may retain information under their own rules. Deleting information from TULIX does not guarantee simultaneous deletion from a third-party system. A shortened link created by an external service may continue to work even after its record is deleted from the TULIX dashboard.</p>
+    <p>Notes, settings and shortened-link records are retained until deleted by the user or until the relevant feature or service is discontinued. Deleting primary data from TULIX does not necessarily mean immediate deletion of copies that may exist in backup systems or infrastructure-provider logs.</p>
+  </div>
+</section>
+
+        <section class="policy-section" id="section-5">
+  <div class="section-heading"><span class="section-number">05</span><h2><span data-lang="ru">Доступ к пользовательским данным</span><span data-lang="en">Access to User Information</span></h2></div>
+  <div data-lang="ru">
+    <p>Обычный доступ к личным данным и сохранённым материалам через интерфейс TULIX предоставляется соответствующему пользователю Telegram. Другие пользователи бота не могут просматривать его файлы, заметки, письма, запросы или историю операций.</p>
+    <p>Администратор TULIX управляет сервисом, настройками, функциями, подписками и технической инфраструктурой. Администратор также обладает техническими полномочиями, которые могут позволить получить доступ к данным, хранящимся на сервере, включая содержимое заметок и сохранённые в них пароли. Заметки не являются хранилищем со сквозным шифрованием или архитектурой «нулевого знания», при которой даже оператор не способен прочитать содержимое.</p>
+    <p>Администратор не должен просматривать содержимое пользовательских данных в обычном режиме работы. Доступ может использоваться в объёме, необходимом для восстановления данных по обращению пользователя, технической поддержки, устранения неисправностей, расследования инцидента безопасности или исполнения обязательного требования закона. Пользователю не следует сохранять в заметках критически важные пароли, банковские данные, секретные ключи или иную информацию, для которой требуется хранилище с end-to-end шифрованием.</p>
+    <p>Ограниченный технический доступ к инфраструктуре также может иметь хостинг-провайдер и поставщики сторонних функций в пределах своих обязанностей и условий обслуживания.</p>
+  </div>
+  <div data-lang="en">
+    <p>Normal access to personal data and saved materials through the TULIX interface is provided to the respective Telegram user. Other bot users cannot view that user's files, notes, messages, requests or operation history.</p>
+    <p>The TULIX administrator manages the service, settings, features, subscriptions and technical infrastructure. The administrator also has technical privileges that may make it possible to access data stored on the server, including note contents and passwords saved in notes. Notes are not an end-to-end encrypted vault or a zero-knowledge system in which the operator is technically unable to read the content.</p>
+    <p>The administrator is not expected to review user content during routine operation. Access may be used only to the extent necessary to restore data at a user's request, provide technical support, fix malfunctions, investigate a security incident or comply with a binding legal requirement. Users should not store critical passwords, banking details, secret keys or other highly sensitive information in notes where an end-to-end encrypted vault is required.</p>
+    <p>Hosting providers and third-party feature providers may also have limited technical access to infrastructure or data within the scope of their duties and service terms.</p>
+  </div>
+</section>
+
+        <section class="policy-section" id="section-6">
+  <div class="section-heading"><span class="section-number">06</span><h2><span data-lang="ru">Сторонние сервисы и технологии</span><span data-lang="en">Third-Party Services and Technology</span></h2></div>
+  <div data-lang="ru">
+    <p>Для работы отдельных функций TULIX может передавать необходимые данные внешним поставщикам. В частности, в зависимости от включённой функции могут использоваться:</p>
+    <ul>
+      <li><strong>Telegram</strong> — доставка сообщений, файлов, команд и взаимодействие с ботом;</li>
+      <li><strong>Google Gemini API / Google AI</strong> — обработка запросов ИИ, генерация изображений, резюме и другого контента;</li>
+      <li><strong>OCR.space</strong> — распознавание текста в изображениях и документах;</li>
+      <li><strong>mail.tm</strong> — создание временных почтовых адресов и получение входящих писем;</li>
+      <li><strong>is.gd</strong> — сокращение ссылок;</li>
+      <li><strong>провайдер серверного размещения</strong> — работа серверной инфраструктуры и временная обработка данных.</li>
+    </ul>
+    <p>При использовании соответствующей функции поставщик получает данные, необходимые для её выполнения. Например, запрос и переданный для анализа материал могут направляться в ИИ-сервис; изображение или документ — в OCR-сервис; адрес ссылки — поставщику сокращения ссылок; данные временного почтового ящика и письма — почтовому провайдеру.</p>
+    <p>Внешние поставщики действуют по собственным условиям и политикам конфиденциальности. TULIX не контролирует все процессы хранения, резервного копирования и удаления в их системах. Обработка может происходить за пределами страны пользователя в соответствии с инфраструктурой конкретного поставщика и применимым законодательством.</p>
+    <p>Пользователю рекомендуется не отправлять через внешние ИИ- и OCR-функции сведения, которые он не готов передавать соответствующему поставщику. Использование таких функций означает передачу материалов, необходимых для выполнения запроса.</p>
+  </div>
+  <div data-lang="en">
+    <p>To operate certain TULIX features, necessary information may be shared with external providers. Depending on the feature enabled, these may include:</p>
+    <ul>
+      <li><strong>Telegram</strong> — delivery of messages, files and commands, and interaction with the bot;</li>
+      <li><strong>Google Gemini API / Google AI</strong> — processing AI requests and generating images, résumés and other content;</li>
+      <li><strong>OCR.space</strong> — text recognition in images and documents;</li>
+      <li><strong>mail.tm</strong> — creation of temporary email addresses and receipt of incoming messages;</li>
+      <li><strong>is.gd</strong> — link shortening;</li>
+      <li><strong>the hosting provider</strong> — operation of server infrastructure and temporary data processing.</li>
+    </ul>
+    <p>When a feature is used, the provider receives the information necessary to perform it. For example, a prompt and material submitted for analysis may be sent to an AI service; an image or document may be sent to an OCR service; a URL may be sent to a link-shortening provider; and temporary mailbox details and incoming messages may be processed by the email provider.</p>
+    <p>External providers operate under their own terms and privacy policies. TULIX does not control every storage, backup or deletion process in their systems. Processing may take place outside the user's country depending on the provider's infrastructure and applicable law.</p>
+    <p>Users should not submit information to external AI or OCR features if they are unwilling to share it with the relevant provider. Using such features involves transmitting the materials needed to fulfil the request.</p>
+  </div>
+</section>
+
+        <section class="policy-section" id="section-7">
+  <div class="section-heading"><span class="section-number">07</span><h2><span data-lang="ru">Защита информации</span><span data-lang="en">Information Security</span></h2></div>
+  <div data-lang="ru">
+    <p>TULIX стремится применять соответствующие технические и организационные меры для защиты данных, включая:</p>
+    <ul>
+      <li>ограничение доступа к серверной инфраструктуре и административным функциям;</li>
+      <li>разграничение пользовательских и административных полномочий;</li>
+      <li>защищённые каналы передачи данных там, где они поддерживаются;</li>
+      <li>защиту API-ключей и учётных данных от публикации в открытом доступе;</li>
+      <li>автоматическое удаление временных файлов по установленным срокам;</li>
+      <li>контроль технических ошибок и событий безопасности;</li>
+      <li>ограничение использования содержимого пользовательских файлов в технических журналах.</li>
+    </ul>
+    <p>Ни одна информационная система не может гарантировать абсолютную защиту от всех возможных угроз. Пользователь должен учитывать, что передача данных через Telegram и сторонние платформы также регулируется правилами этих платформ.</p>
+  </div>
+  <div data-lang="en">
+    <p>TULIX aims to apply appropriate technical and organisational measures to protect information, including:</p>
+    <ul>
+      <li>restricting access to server infrastructure and administrative functions;</li>
+      <li>separating user and administrator permissions;</li>
+      <li>using secure data transmission channels where supported;</li>
+      <li>protecting API keys and credentials from public disclosure;</li>
+      <li>automatically deleting temporary files according to defined retention periods;</li>
+      <li>monitoring technical errors and security events;</li>
+      <li>limiting the use of user file contents in technical logs.</li>
+    </ul>
+    <p>No information system can guarantee absolute protection against every possible threat. Users should also note that data transmitted through Telegram and third-party platforms is subject to those platforms' own rules.</p>
+  </div>
+</section>
+
+        <section class="policy-section" id="section-8">
+  <div class="section-heading"><span class="section-number">08</span><h2><span data-lang="ru">Права пользователей</span><span data-lang="en">User Rights</span></h2></div>
+  <div data-lang="ru">
+    <p>В пределах, предусмотренных применимым законодательством, пользователь может:</p>
+    <ul>
+      <li>запросить сведения об обработке своих данных;</li>
+      <li>попросить исправить неточную информацию;</li>
+      <li>потребовать удалить данные, которые TULIX хранит и может удалить;</li>
+      <li>отозвать согласие на обработку в случаях, предусмотренных законом;</li>
+      <li>прекратить использование сервиса и очистить сохранённые данные через доступные функции.</li>
+    </ul>
+    <p>Запрос можно направить на <a href="mailto:tidesluck@icloud.com">tidesluck@icloud.com</a>. Для подтверждения владения аккаунтом может потребоваться Telegram User ID или иная разумная проверка. Не отправляйте пароли, API-ключи и другие секретные данные по электронной почте.</p>
+    <p>Запрос на удаление из TULIX не распространяется автоматически на историю Telegram, системы внешних поставщиков или ссылки, уже созданные сторонним сервисом. Для удаления таких данных может потребоваться отдельное обращение к соответствующему поставщику.</p>
+  </div>
+  <div data-lang="en">
+    <p>To the extent provided by applicable law, users may:</p>
+    <ul>
+      <li>request information about the processing of their data;</li>
+      <li>request correction of inaccurate information;</li>
+      <li>request deletion of data stored by TULIX that TULIX can delete;</li>
+      <li>withdraw consent where permitted by law;</li>
+      <li>stop using the service and clear saved data through available features.</li>
+    </ul>
+    <p>Requests may be sent to <a href="mailto:tidesluck@icloud.com">tidesluck@icloud.com</a>. Proof of account ownership, such as a Telegram User ID or another reasonable verification, may be required. Do not send passwords, API keys or other secret credentials by email.</p>
+    <p>A deletion request submitted to TULIX does not automatically apply to Telegram chat history, external provider systems or links already created by a third-party service. A separate request to the relevant provider may be necessary to delete such information.</p>
+  </div>
+</section>
+
+        <section class="policy-section" id="section-9">
+  <div class="section-heading"><span class="section-number">09</span><h2><span data-lang="ru">Ответственность пользователя</span><span data-lang="en">User Responsibilities</span></h2></div>
+  <div data-lang="ru">
+    <p>Пользователь самостоятельно отвечает за наличие прав и законных оснований на передачу в TULIX файлов, фотографий, документов, ссылок и других материалов, в том числе содержащих сведения о третьих лицах.</p>
+    <p>Не рекомендуется отправлять в бот банковские реквизиты, данные документов, секретные ключи и другую критически важную информацию, если для этого нет необходимости.</p>
+    <p>Заметки TULIX и функция генерации паролей предназначены для удобного хранения текстовой информации, но не являются специализированным защищённым менеджером паролей. Содержимое заметок технически доступно администратору сервиса в описанных выше исключительных случаях.</p>
+    <p>Пользователь должен скачивать временные файлы в установленный срок и учитывать, что после автоматического удаления восстановить их через TULIX может быть невозможно.</p>
+  </div>
+  <div data-lang="en">
+    <p>Users are responsible for having the rights and lawful grounds to submit files, photographs, documents, URLs and other materials to TULIX, including materials containing information about third parties.</p>
+    <p>Users should avoid submitting banking details, identity document information, secret keys or other highly sensitive information unless necessary.</p>
+    <p>TULIX notes and password generation are intended for convenient storage of text information. They are not a dedicated secure password manager. As described above, the service administrator may technically access note contents in limited circumstances.</p>
+    <p>Users are responsible for downloading temporary files within the stated period and should understand that files may not be recoverable through TULIX after automatic deletion.</p>
+  </div>
+</section>
+
+        <section class="policy-section" id="section-10">
+  <div class="section-heading"><span class="section-number">10</span><h2><span data-lang="ru">Изменения политики</span><span data-lang="en">Policy Updates</span></h2></div>
+  <div data-lang="ru">
+    <p>TULIX может обновлять настоящую Политику при добавлении или изменении функций, подключении новых поставщиков, изменении инфраструктуры или требований законодательства.</p>
+    <p>Актуальная редакция публикуется на этой странице. Дата вступления изменений в силу указывается в начале документа. Если изменения требуют нового согласия пользователя, оно запрашивается отдельно в предусмотренном законом порядке.</p>
+  </div>
+  <div data-lang="en">
+    <p>TULIX may update this Policy when features are added or changed, new providers are connected, infrastructure changes or legal requirements are updated.</p>
+    <p>The current version is published on this page. The effective date of changes is shown at the beginning of the document. Where changes require renewed user consent, it will be requested separately as required by law.</p>
+  </div>
+</section>
+
+        <section class="policy-section" id="section-11">
+  <div class="section-heading"><span class="section-number">11</span><h2><span data-lang="ru">Контакты</span><span data-lang="en">Contact</span></h2></div>
+  <div data-lang="ru">
+    <p>По вопросам конфиденциальности, обработки, доступа и удаления данных свяжитесь с администрацией TULIX:</p>
+    <p><strong>TULIX Privacy Support</strong><br>Email: <a href="mailto:tidesluck@icloud.com">tidesluck@icloud.com</a><br>Telegram: <a href="https://t.me/tulixbot" target="_blank" rel="noopener noreferrer">@tulixbot</a></p>
+  </div>
+  <div data-lang="en">
+    <p>For questions about privacy, processing, access or deletion of data, contact the TULIX administration:</p>
+    <p><strong>TULIX Privacy Support</strong><br>Email: <a href="mailto:tidesluck@icloud.com">tidesluck@icloud.com</a><br>Telegram: <a href="https://t.me/tulixbot" target="_blank" rel="noopener noreferrer">@tulixbot</a></p>
+  </div>
+</section>
+
+        <div class="contact-card">
+          <div>
+            <h3><span data-lang="ru">Есть вопрос о данных?</span><span data-lang="en">Questions about your data?</span></h3>
+            <p><span data-lang="ru">Напишите нам — мы поможем разобраться.</span><span data-lang="en">Get in touch and we'll help you.</span></p>
+          </div>
+          <div class="contact-actions">
+            <a class="button primary" href="mailto:tidesluck@icloud.com"><span data-lang="ru">Написать нам</span><span data-lang="en">Contact us</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+            <a class="button" href="https://t.me/tulixbot" target="_blank" rel="noopener noreferrer">@tulixbot ↗</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div><span class="footer-brand">TULIX</span> <span>· <span data-lang="ru">Ваш цифровой мультитул</span><span data-lang="en">Your digital multitool</span></span></div>
+      <div class="footer-links"><a href="https://t.me/tulixbot" target="_blank" rel="noopener noreferrer">Telegram</a><a href="mailto:tidesluck@icloud.com">Email</a><span>© <span id="year"></span> TULIX</span></div>
+    </div>
+  </footer>
+
+  <script>
+    function setLanguage(language) {
+      const isEnglish = language === 'en';
+      document.body.classList.toggle('english', isEnglish);
+      document.documentElement.lang = isEnglish ? 'en' : 'ru';
+      document.getElementById('ruButton').setAttribute('aria-pressed', String(!isEnglish));
+      document.getElementById('enButton').setAttribute('aria-pressed', String(isEnglish));
+      try { localStorage.setItem('tulix-policy-language', language); } catch (_) {}
+    }
+    document.getElementById('year').textContent = new Date().getFullYear();
+    try {
+      const savedLanguage = localStorage.getItem('tulix-policy-language');
+      if (savedLanguage === 'en' || savedLanguage === 'ru') setLanguage(savedLanguage);
+    } catch (_) {}
+  </script>
+</body>
+</html>
